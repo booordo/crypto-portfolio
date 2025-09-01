@@ -1,25 +1,13 @@
 // app/assets/page.tsx
-import { db } from "@/db/client";
-import { assets } from "@/db/schema";
+import { db } from "@/lib/db/client";
+import { assetsTable } from "@/lib/db/schema";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { seedAssets } from "@/app/actions/assets";
 
 export default async function AssetsPage() {
-  const rows = await db.select().from(assets).orderBy(assets.symbol);
+  const rows = await db.select().from(assetsTable).orderBy(assetsTable.symbol);
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Доступные активы</h1>
-        {/* Простая форма, чтобы вызвать Server Action */}
-        <form action={seedAssets}>
-          <Button type="submit" variant="outline">
-            Добавить BTC/ETH/SOL
-          </Button>
-        </form>
-      </div>
-
       {rows.length === 0 ? (
         <p className="text-gray-600">
           Пока в базе нет активов. Нажми кнопку «Добавить BTC/ETH/SOL».
