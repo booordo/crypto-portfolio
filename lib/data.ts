@@ -1,10 +1,10 @@
-import { db } from "@/lib/db/client";
+import { db } from "@/db";
 import {
   assetsTable,
   transactionsTable,
   SelectAsset,
   SelectTransaction,
-} from "@/lib/db/schema";
+} from "@/db/schema";
 
 export async function fetchAssets(): Promise<SelectAsset[]> {
   return await db.select().from(assetsTable).orderBy(assetsTable.symbol);

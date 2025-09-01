@@ -25,21 +25,24 @@ export default function RootLayout({
                 Crypto Portfolio
               </Link>
               <Link
-                href="/transactions"
+                href="../dashboard/transactions"
                 className="text-gray-700 hover:text-blue-600"
               >
                 Сделки
               </Link>
               <Link
-                href="/assets"
+                href="../dashboard/assets"
                 className="text-gray-700 hover:text-blue-600"
               >
                 Активы
               </Link>
             </div>
-            <Button size="sm" variant="outline">
+            <Link
+              href="../signin"
+              className="text-gray-700 hover:text-blue-600"
+            >
               Войти
-            </Button>
+            </Link>
           </nav>
         </header>
 

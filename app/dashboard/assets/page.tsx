@@ -1,6 +1,6 @@
 // app/assets/page.tsx
-import { db } from "@/lib/db/client";
-import { assetsTable } from "@/lib/db/schema";
+import { db } from "@/db";
+import { assetsTable } from "@/db/schema";
 import { Card } from "@/components/ui/card";
 
 export default async function AssetsPage() {

@@ -1,13 +1,13 @@
 "use client";
 
 import { createTransaction } from "@/lib/actions";
-import { SelectAsset } from "@/lib/db/schema";
+import { SelectAsset } from "@/db/schema";
 import { Button } from "../button";
 
 export default function CreateTransactionForm({
-  assetRows,
+  assets,
 }: {
-  assetRows: SelectAsset[];
+  assets: SelectAsset[];
 }) {
   return (
     <form
@@ -23,7 +23,7 @@ export default function CreateTransactionForm({
             required
           >
             <option value="">— выбери —</option>
-            {assetRows.map((a) => (
+            {assets.map((a) => (
               <option key={a.id} value={a.id}>
                 {a.symbol} — {a.name}
               </option>
